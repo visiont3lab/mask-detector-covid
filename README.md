@@ -6,3 +6,9 @@ Parte 1) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.
 ciao ciao ciaooo ciao FDFD
 ciao ciao ciaoo0000
 cIAO cIAO ciao
+
+
+
+virtualenv env
+source env/bin/activate
+pip install opencv-python
