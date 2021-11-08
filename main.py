@@ -27,7 +27,7 @@ def  findLargestBB(bbs):
       biggest = bbs[i_biggest]
       return True, biggest
 
-cap = cv2.VideoCapture("data/video.mp4")
+cap = cv2.VideoCapture(0) #"data/video.mp4")
 
 if (cap.isOpened()== False): 
   print("Error opening video stream or file")
