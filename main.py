@@ -47,7 +47,7 @@ while(cap.isOpened()):
   #frame = rotate(frame, -90)
 
   # Trova tutte le facce nell'immagine
-  faces = model_face.detectMultiScale(frame,scaleFactor=1.1,minNeighbors=4, flags=cv2.CASCADE_DO_ROUGH_SEARCH | cv2.CASCADE_SCALE_IMAGE)
+  faces = model_face.detectMultiScale(frame,scaleFactor=1.2,minNeighbors=4, flags=cv2.CASCADE_DO_ROUGH_SEARCH | cv2.CASCADE_SCALE_IMAGE)
   
   # Trova la faccia piu grande (area piu grande)
   ret, facebig = findLargestBB(faces)
@@ -66,8 +66,8 @@ while(cap.isOpened()):
 
     # Solo sul vostro pc
     cv2.imshow("Roi", roi)
-    cv2.imshow("Image", frame)
-    cv2.waitKey(33)
+  cv2.imshow("Image", frame)
+  cv2.waitKey(33)
 
     # In colab o jupyter
     #frame = cv2.resize(frame, (128,128))
