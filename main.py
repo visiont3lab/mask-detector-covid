@@ -40,14 +40,14 @@ while(cap.isOpened()):
   ret, frame = cap.read()
   
   # coversione immagine da BGR a RGB
-  frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+  #frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
   #frame = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
   
   # Rotazione dell'immagine
-  frame = rotate(frame, -90)
+  #frame = rotate(frame, -90)
 
   # Trova tutte le facce nell'immagine
-  faces = model_face.detectMultiScale(frame,scaleFactor=1.05,minNeighbors=4, flags=cv2.CASCADE_DO_ROUGH_SEARCH | cv2.CASCADE_SCALE_IMAGE)
+  faces = model_face.detectMultiScale(frame,scaleFactor=1.1,minNeighbors=4, flags=cv2.CASCADE_DO_ROUGH_SEARCH | cv2.CASCADE_SCALE_IMAGE)
   
   # Trova la faccia piu grande (area piu grande)
   ret, facebig = findLargestBB(faces)
@@ -62,10 +62,11 @@ while(cap.isOpened()):
     roi = frame[y:y+h,x:x+w]
 
     # Disegna il quadrato
-    #cv2.rectangle(frame,(x,y),(x+w,y+h),(255,0,0),2)
+    cv2.rectangle(frame,(x,y),(x+w,y+h),(255,0,0),2)
 
     # Solo sul vostro pc
-    cv2.imshow("Image", roi)
+    cv2.imshow("Roi", roi)
+    cv2.imshow("Image", frame)
     cv2.waitKey(33)
 
     # In colab o jupyter
