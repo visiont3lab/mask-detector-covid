@@ -27,6 +27,14 @@ pip install -r requirements.txt
 python main.py
 ```
 
+```
+# Salva tutti i pacchetti python contenuti nell'ambiente virtuale
+pip freeze > requirements.txt
+
+# Install versione specifica di una libreria
+pip install scikit-learn==1.0.1
+```
+
 ## TODO
 
 * Irrobustire il face detector
