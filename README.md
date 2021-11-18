@@ -11,13 +11,22 @@ Parte 4)  Cross validation + Fine tuning [![Open In Colab](https://colab.researc
 
 
 
-
-
 ## Configuration  Environment 
 
 ```
+# Crea un ambiente virtuale
 virtualenv --python=python3.8 env
+
+# Entra dentro l'ambiente virtuale
 source env/bin/activate
-pip install opencv-python
+
+# Install le dipendenze (solo una volta)
+pip install -r requirements.txt
+
+# Run the code
 python main.py
 ```
+
+## TODO
+
+* Irrobustire il face detector
