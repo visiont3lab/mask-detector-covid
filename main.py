@@ -36,7 +36,7 @@ if (cap.isOpened()== False):
 model_face = cv2.CascadeClassifier('models/haarcascade_frontalface_default.xml')
 
 # Load mask classifier
-with open("models/model-aug.pkl", 'rb') as f:
+with open("models/model.pkl", 'rb') as f:
   model_mask = pickle.load(f)
 
 class_names = ["mask", "no-mask"]
