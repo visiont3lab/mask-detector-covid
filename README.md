@@ -19,6 +19,7 @@ Parte 5)  Comple Classification Project Pipeline [![Open In Colab](https://colab
 ```
 # Crea un ambiente virtuale
 virtualenv --python=python3.8 env
+# or python3.8 -m venv  env
 
 # Entra dentro l'ambiente virtuale
 source env/bin/activate
