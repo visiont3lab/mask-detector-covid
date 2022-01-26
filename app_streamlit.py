@@ -44,7 +44,7 @@ if choice=="Start":
             
             im_color = cv2.cvtColor(frame,cv2.COLOR_BGR2RGB)
             im_gray = cv2.cvtColor(im_color,cv2.COLOR_RGB2GRAY)
-            faces = cascade_faces.detectMultiScale(im_gray, 1.8,5,cv2.CASCADE_DO_ROUGH_SEARCH | cv2.CASCADE_SCALE_IMAGE)
+            faces = cascade_faces.detectMultiScale(im_gray, 1.5,5,cv2.CASCADE_DO_ROUGH_SEARCH | cv2.CASCADE_SCALE_IMAGE)
 
             for (x,y,w,h) in faces:
                 roi = frame[y:y+h,x:x+w]

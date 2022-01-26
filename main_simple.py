@@ -57,7 +57,7 @@ while(cap.isOpened()):
   #frame = rotate(frame, -90)
 
   # Trova tutte le facce nell'immagine
-  faces = model_face.detectMultiScale(frame,scaleFactor=1.8,minNeighbors=4, flags=cv2.CASCADE_DO_ROUGH_SEARCH | cv2.CASCADE_SCALE_IMAGE)
+  faces = model_face.detectMultiScale(frame,scaleFactor=1.4,minNeighbors=4, flags=cv2.CASCADE_DO_ROUGH_SEARCH | cv2.CASCADE_SCALE_IMAGE)
   
   # Trova la faccia piu grande (area piu grande)
   retFace, facebig = findLargestBB(faces)
