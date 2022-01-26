@@ -3,6 +3,12 @@ import cv2
 import numpy as np
 import time
 import os
+import pickle 
+
+class_names = ["mask", "no-mask"]
+with open("models/mask-classifiers/model_augmented.pkl", 'rb') as f:
+  model_mask = pickle.load(f)
+
 
 # Windows 
 st.title("Setup Configuration")
@@ -38,13 +44,20 @@ if choice=="Start":
             
             im_color = cv2.cvtColor(frame,cv2.COLOR_BGR2RGB)
             im_gray = cv2.cvtColor(im_color,cv2.COLOR_RGB2GRAY)
-            faces = cascade_faces.detectMultiScale(im_gray, 1.1,5,cv2.CASCADE_DO_ROUGH_SEARCH | cv2.CASCADE_SCALE_IMAGE)
+            faces = cascade_faces.detectMultiScale(im_gray, 1.8,5,cv2.CASCADE_DO_ROUGH_SEARCH | cv2.CASCADE_SCALE_IMAGE)
 
             for (x,y,w,h) in faces:
-                roi = im_gray[y:y+h,x:x+w]
+                roi = frame[y:y+h,x:x+w]
                 cv2.rectangle(im_color,(x,y),(x+w,y+h),(255,0,0),2)
         
-
+                # -----
+                # 64x64x3 --> messe su una linea
+                roi = cv2.resize(roi,(64,64))
+                inpX = roi.reshape(1,-1)
+                y_hat = model_mask.predict_proba(inpX)
+                idx = np.argmax(y_hat)
+                cv2.putText(im_color, class_names[idx] + " " +  str(np.round(y_hat[0][idx])), (50, 50),  cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)
+            
             image_placeholder.image(im_color)
             time.sleep(0.033)
     cap.release()
