@@ -15,13 +15,13 @@ def generate(name):
         print(error) 
 
     IMG_SIZE = (64,64) # W, H
-    BATCH_SIZE = 250
+    BATCH_SIZE = 500
 
     def my_generator(batch_size):
         SEED=42  
         images_generator = ImageDataGenerator(
                 #rescale=1./255,
-                #brightness_range=(0.7, 0.9),
+                brightness_range=(0.7, 0.9),
                 vertical_flip=False,
                 horizontal_flip=True,
                 width_shift_range=0.12, #0.05,
@@ -49,7 +49,9 @@ def generate(name):
         print(images_aug_batch.shape)
         for i in range(0,images_aug_batch.shape[0]):
             #print(folder_path_augmented+ "/" + str(m) + "_" + str(i) + ".png")
-            cv2.imwrite(folder_path_augmented + "/" + str(m) + "_" + str(i) + ".png", images_aug_batch[i,:,:,0])
+            im = images_aug_batch[i,:,:,:]
+            im = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
+            cv2.imwrite(folder_path_augmented + "/" + str(m) + "_" + str(i) + ".png", im)
             cv2.waitKey(0)
 
 

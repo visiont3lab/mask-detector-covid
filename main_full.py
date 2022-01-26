@@ -30,7 +30,7 @@ class classifier:
     def __init__(self):
         self.size = 64
         self.channel = 3
-        self.TRAIN_WITH_AUGMENTATION = False
+        self.TRAIN_WITH_AUGMENTATION = True
         if self.TRAIN_WITH_AUGMENTATION:
              self.folder_path = "dataset_augmented"
         else:
