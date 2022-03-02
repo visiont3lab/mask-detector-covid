@@ -20,6 +20,7 @@ import joblib
 from sklearn.metrics import classification_report
 import onnxruntime as rt
 from sklearn.pipeline import Pipeline
+from sklearn.decomposition import PCA
 
 # To train with augmented dataset
 # 1. Generate augmented dataset --> cd utils , python test_keras_augmentation.py
@@ -100,7 +101,7 @@ class classifier:
         pipeline = Pipeline([
             ("sc", MinMaxScaler()), # 0-1 features
             #('polinomial', PolynomialFeatures(degree=3)),
-            #("pca", PCA(n_components=0.98)),
+            ("pca", PCA(n_components=0.98)),
             ("model", SVC(probability=True) )
         ])
 

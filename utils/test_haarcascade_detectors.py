@@ -9,7 +9,7 @@ model_eye = cv2.CascadeClassifier("../models/haar-cascade-files/haarcascade_eye.
 model = joblib.load("../models/mask-classifiers/model.pkl")
 
 
-cap = cv2.VideoCapture(0 )
+cap = cv2.VideoCapture(0)
 
 while ( cap.isOpened() ):
 
