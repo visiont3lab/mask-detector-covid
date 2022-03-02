@@ -11,7 +11,6 @@ Parte 3)  Mask Classifier (SVM) [![Open In Colab](https://colab.research.google.
 
 Parte 4)  Cross validation + Fine tuning [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/visiont3lab/mask-detector-covid/blob/main/notebooks/Project_Covid_Mask_Classifier_Part4.ipynb)
 
-
 Parte 5)  Comple Classification Project Pipeline [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/visiont3lab/mask-detector-covid/blob/main/notebooks/Classification_Project.ipynb)
 
 [Website demo streamlit](https://mask-detector-covid.herokuapp.com/)
