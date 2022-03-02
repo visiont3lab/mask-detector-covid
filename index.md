@@ -1,37 +1,67 @@
-## Welcome to GitHub Pages
+# mask-detector-covid
 
-You can use the [editor on GitHub](https://github.com/visiont3lab/mask-detector-covid/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+* [Github Pages](https://visiont3lab.github.io/mask-detector-covid/) https://visiont3lab.github.io/mask-detector-covid/
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+Parte 1)  Setup and Training [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/visiont3lab/mask-detector-covid/blob/main/notebooks/Project_Covid_Mask_Classifier_Part1.ipynb)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Parte 2)  Face Detector [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/visiont3lab/mask-detector-covid/blob/main/notebooks/Project_Covid_Mask_Classifier_Part2.ipynb)
 
-```markdown
-Syntax highlighted code block
+Parte 3)  Mask Classifier (SVM) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/visiont3lab/mask-detector-covid/blob/main/notebooks/Project_Covid_Mask_Classifier_Part3.ipynb)
 
-# Header 1
-## Header 2
-### Header 3
+Parte 4)  Cross validation + Fine tuning [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/visiont3lab/mask-detector-covid/blob/main/notebooks/Project_Covid_Mask_Classifier_Part4.ipynb)
 
-- Bulleted
-- List
 
-1. Numbered
-2. List
+Parte 5)  Comple Classification Project Pipeline [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/visiont3lab/mask-detector-covid/blob/main/notebooks/Classification_Project.ipynb)
 
-**Bold** and _Italic_ and `Code` text
+[Website demo streamlit](https://mask-detector-covid.herokuapp.com/)
 
-[Link](url) and ![Image](src)
+## Configuration  Environment 
+
+```
+# Crea un ambiente virtuale
+virtualenv --python=python3.8 env
+# or python3.8 -m venv  env
+
+# Entra dentro l'ambiente virtuale
+source env/bin/activate
+
+# Install le dipendenze (solo una volta)
+pip install -r requirements.txt
+
+# Run the training with standard datatest
+python main_full.py
+
+# Run training with augmentation
+# To train with augmented dataset
+# 1. Generate augmented dataset 
+cd utils
+python test_keras_augmentation.py
+# 2. set  self.TRAIN_WITH_AUGMENTATION  = True
+python main_full.py
+
+# Run detection + model
+python main_simple.py
+
+# Streamlit app
+streamlit run app_streamlit.py
+
+# ---- Extra
+# Compare haarcascade detector with mobilnet
+python test_face_detectors.py
+
+# pipeline haarcascade + svm
+python test_haarcascade_detectors.py
+
+# model to find person
+python test_person_detector_mobilessd.py
+
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+```
+# Salva tutti i pacchetti python contenuti nell'ambiente virtuale
+pip freeze > requirements.txt
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/visiont3lab/mask-detector-covid/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+# Install versione specifica di una libreria
+pip install scikit-learn==1.0.1
+```
